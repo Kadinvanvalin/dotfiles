@@ -1,0 +1,65 @@
+[user]
+  name = kadin van valin
+  email = kadin@kadin.codes
+[includeIf "gitdir:~/gitlab.cj.dev/"]
+    path = ~/work/.gitconfig
+[fetch]
+    prune = true
+[core]
+  editor = hx
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[init]
+  defaultBranch = main
+[web]
+  browser = google-chrome
+[credential]
+  helper = osxkeychain
+[push]
+  default = simple
+[merge]
+  tool = kdiff3
+[difftool]
+  prompt = false
+[alias]
+  a    = add
+  st   = status -sb
+  co   = checkout
+  df   = diff
+  pl   = pull
+  pushu = push -u origin HEAD
+  ps   = push
+  undo = reset --soft HEAD^
+  f    = fetch
+  sta  = stash
+  stap = stash apply
+  uall = reset .
+  rbm  = pull --rebase origin master
+  rbc  = rebase --continue
+  rbs  = rebase --skip
+  rba  = rebase --abort
+  cln  = !git branch | grep -v 'master' | xargs git branch -D
+  squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
+  pull-force = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
+  pf = pull_force
+  pull-stash = !"git fetch --all; git stash; git merge @{u}; git stash pop"
+  fdev = push -f origin HEAD:dev
+  get = fetch --prune -v
+  rg = l --grep
+  fzf = "!f() { git rg \"$1\" | fzf; }; f"
+  l = log --graph --decorate --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  br =  branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+  wip = !git add -A && git commit -am "WIP" && git push --no-verify
+  res = !git reset --hard
+  cm = "!f() { git commit -m \"$(git rev-parse --abbrev-ref HEAD): $1\"; }; f"
+  trim = !git branch | grep -v -E 'master|main|development|integration|production' | xargs git branch -D
+  amend = commit --amend --no-edit
+  # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
+  squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+[pull]
+	rebase = true

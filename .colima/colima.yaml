@@ -1,0 +1,12 @@
+vm:
+    cpu: 4
+    disk: 100
+    memory: 4
+    arch: x86_64
+    forward_agent: false
+    mounts:
+        - ~:w
+runtime: docker
+kubernetes:
+    enabled: false
+    version: v1.22.2

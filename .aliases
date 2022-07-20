@@ -1,0 +1,65 @@
+alias jeeves-edit-playbook="vi ~/github.com/kadinvanvalin/mac-dev-playbook/config.yml"
+alias jeeves-run-playbook="cd ~/github.com/kadinvanvalin/mac-dev-playbook; ansible-playbook main.yml --ask-become-pass"
+alias please='sudo $(fc -ln -1)'
+alias java8="asdf shell java 1.8"
+alias java12="asdf shell java 12"
+alias ls="exa -a --git-ignore"
+alias ll="exa -alh --git"
+alias cat="bat"
+ alias tree="exa --tree"
+# alias la="ls -a"
+# alias ll="ls -la"
+function fzf_dir(){
+  fd --type directory --exclude Library --max-depth 3 ^ ~/ | fzf --preview 'exa -aI ".git" --git --git-ignore --tree --long --level=2 {}'
+}
+alias fvim='vim $(fzf_dir)'
+alias fidea='idea $(fzf_dir)'
+alias f='cd $(fzf_dir)'
+alias g="git"
+
+
+# Kill a process on a specified port
+kill_port() {
+  if [ -n "$1" ]
+  then
+    lsof -ti :"$1" | xargs kill -9
+  else
+    echo "Pass in the port number."
+  fi
+}
+
+
+
+function pad {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+  open "https://pad.cj.dev/p/${ticket}"
+}
+function jira {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+  open "https://jira.cnvrmedia.net/browse/${ticket}"
+}
+
+
+
+alias code=vim
+alias clone_and_go=". dolly_INNER_clone_and_go.sh"
+function branch-name {
+  NAME=$(git branch | grep '*' | sed 's/* //') 
+  DESCRIPTION=$(git config branch."$NAME".description)
+  TEXT=$(cat "$1" | sed '/^#.*/d')
+
+if [ -n "$TEXT" ]
+then
+    echo "$NAME"': '$(cat "$1" | sed '/^#.*/d') > "$1"
+    if [ -n "$DESCRIPTION" ] 
+    then
+       echo "" >> "$1"
+       echo $DESCRIPTION >> "$1"
+    fi
+else
+    echo "Aborting commit due to empty commit message."
+    exit 1
+fi
+}

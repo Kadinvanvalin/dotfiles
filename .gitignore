@@ -1,0 +1,11 @@
+*.DS_Store
+*.LSOverride
+*iml
+Thumbs.db
+.bundle
+.idea
+.config/htop
+.config/jgit
+.colima
+.local/share
+

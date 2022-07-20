@@ -1,0 +1,42 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+set cursorline          " highlight the current line
+" set background=dark   " darker color scheme
+" set ruler             " show line number in bar
+set nobackup            " don't create pointless backup files; Use VCS instead
+set autoread            " watch for file changes
+set number              " show line numbers
+set showcmd             " show selection metadata
+set showmode            " show INSERT, VISUAL, etc. mode
+set showmatch           " show matching brackets
+set autoindent smartindent  " auto/smart indent
+set smarttab            " better backspace and tab functionality
+set scrolloff=5         " show at least 5 lines above/below
+filetype on             " enable filetype detection
+filetype indent on      " enable filetype-specific indenting
+filetype plugin on      " enable filetype-specific plugins
+set relativenumber
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+set showmode

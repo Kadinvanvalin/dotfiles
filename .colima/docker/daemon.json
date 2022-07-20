@@ -1,0 +1,8 @@
+{
+    "features": {
+        "buildkit": true
+    },
+    "exec-opts": [
+        "native.cgroupdriver=cgroupfs"
+    ]
+}
