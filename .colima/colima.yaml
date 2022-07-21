@@ -6,6 +6,7 @@ vm:
     forward_agent: false
     mounts:
         - ~:w
+        - /private/tmp:w
 runtime: docker
 kubernetes:
     enabled: false

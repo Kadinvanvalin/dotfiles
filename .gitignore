@@ -7,5 +7,6 @@ Thumbs.db
 .config/htop
 .config/jgit
 .colima
+!.colima/colima.yml
 .local/share
-
+.config/coc
