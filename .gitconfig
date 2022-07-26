@@ -54,16 +54,9 @@
   ps  = push
   undo = reset --soft HEAD^
   f   = fetch
-  sta  = stash
-  stap = stash apply
-  uall = reset .
-  rbm  = pull --rebase origin master
-  rbc  = rebase --continue
-  rbs  = rebase --skip
-  rba  = rebase --abort
   cln  = !git branch | grep -v 'master' | xargs git branch -D
   squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
-  pull-force = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
+  pull-force = !"git fetch --all; git reset --hard origin/HEAD; git merge @{u}"
   pf = pull_force
   pull-stash = !"git fetch --all; git stash; git merge @{u}; git stash pop"
   fdev = push -f origin HEAD:dev
@@ -74,7 +67,7 @@
   br =  branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   wip = !git add -A && git commit -am "WIP" && git push --no-verify
   res = !git reset --hard
-  cm = "!f() { git commit -m \"$(git rev-parse --abbrev-ref HEAD): $1\"; }; f"
+	cm = "!f() { git commit -m \"[$(git rev-parse --abbrev-ref HEAD)] $1\"; }; f"
   trim = !git branch | grep -v -E 'master|main|development|integration|production' | xargs git branch -D
   amend = commit --amend --no-edit
   # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
