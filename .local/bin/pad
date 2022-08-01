@@ -1,7 +1,12 @@
 #!/bin/sh
-
+function ticket() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+  echo ${branch_to_upper#MOB/}
+}
 function pad() {
  cjpm=$(ticket)
+
   open "https://pad.cj.dev/p/$ticket"
 }
 

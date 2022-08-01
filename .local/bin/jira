@@ -1,7 +1,6 @@
 #!/bin/sh
-function ticket() {
+function jira {
   branch=$(git rev-parse --abbrev-ref HEAD)
   branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
-  echo ${branch_to_upper#MOB/}
+  open "https://jira.cnvrmedia.net/browse/${branch_to_upper#MOB/}"
 }
-ticket
