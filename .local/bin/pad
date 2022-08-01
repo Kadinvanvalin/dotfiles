@@ -1,0 +1,8 @@
+#!/bin/sh
+
+function pad() {
+ cjpm=$(ticket)
+  open "https://pad.cj.dev/p/$ticket"
+}
+
+pad
