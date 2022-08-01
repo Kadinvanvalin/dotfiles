@@ -4,3 +4,4 @@ function jira {
   branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
   open "https://jira.cnvrmedia.net/browse/${branch_to_upper#MOB/}"
 }
+jira
