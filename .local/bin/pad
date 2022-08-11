@@ -7,7 +7,7 @@ function ticket() {
 function pad() {
  cjpm=$(ticket)
 
-  open "https://pad.cj.dev/p/$ticket"
+  open "https://pad.cj.dev/p/$cjpm"
 }
 
 pad
