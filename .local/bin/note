@@ -1,0 +1,13 @@
+#!/bin/sh
+function ticket() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+  echo ${branch_to_upper#MOB/}
+}
+function note() {
+ cjpm=$(ticket)
+ open "obsidian://new?vault=notes&file=areas/work/tickets/$cjpm&append"
+}
+
+
+note
