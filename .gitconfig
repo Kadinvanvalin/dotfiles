@@ -59,7 +59,7 @@
   pull-force = !"git fetch --all; git reset --hard origin/HEAD; git merge @{u}"
   pf = pull_force
   pull-stash = !"git fetch --all; git stash; git merge @{u}; git stash pop"
-  fdev = push -f origin HEAD:dev
+  fdev = push -f origin HEAD:dev --no-verify
   get = fetch --prune -v
   rg = l --grep
   fzf = "!f() { git rg \"$1\" | fzf; }; f"
