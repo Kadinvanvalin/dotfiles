@@ -1,7 +1,7 @@
 " https://betterprogramming.pub/setting-up-neovim-for-web-development-in-2020-d800de3efacd
 " https://blog.logrocket.com/configuring-vim-rust-development/
 " https://blog.logrocket.com/configuring-vim-rust-development/#example-configuration-vim
-"setup vim-plug {{{
+" setup vim-plug {{{
 
   "Note: install vim-plug if not present
   if empty(glob('~/.config/nvim/autoload/plug.vim'))
