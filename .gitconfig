@@ -6,7 +6,7 @@
 [fetch]
    prune = true
 [core]
-  editor = hx
+  editor = nvim
   excludesfile = ~/.gitignore
   autocrlf = input
 [color]
@@ -27,33 +27,13 @@
 [difftool]
   prompt = false
 [alias]
-  s = status
-  a = !git add . && git status
-  au = !git add -u . && git status
-  aa = !git add . && git add -u . && git status
-  c = commit
-  cm = commit -m
-  ca = commit --amend # careful
-  ac = !git add . && git commit
-  acm = !git add . && git commit -m
-  l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
   ll = log --stat --abbrev-commit
   lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
-  d = diff
   master = checkout master
-  spull = svn rebase
-  spush = svn dcommit
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-  a   = add
-  st  = status -sb
-  co  = checkout
-  df  = diff
-  pl  = pull
   pushu = push -u origin HEAD
-  ps  = push
   undo = reset --soft HEAD^
-  f   = fetch
   cln  = !git branch | grep -v 'master' | xargs git branch -D
   squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
   pull-force = !"git fetch --all; git reset --hard origin/HEAD; git merge @{u}"
@@ -67,7 +47,7 @@
   br =  branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   wip = !git add -A && git commit -am "WIP" && git push --no-verify
   res = !git reset --hard
-	cm = "!f() { git commit -m \"[$(git rev-parse --abbrev-ref HEAD)] $1\"; }; f"
+  cm = "!f() { git commit -m \"[$(git rev-parse --abbrev-ref HEAD)] $1\"; }; f"
   trim = !git branch | grep -v -E 'master|main|development|integration|production' | xargs git branch -D
   amend = commit --amend --no-edit
   # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
