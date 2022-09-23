@@ -30,7 +30,6 @@
   ll = log --stat --abbrev-commit
   lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
-  master = checkout master
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   pushu = push -u origin HEAD
   undo = reset --soft HEAD^
@@ -45,7 +44,6 @@
   fzf = "!f() { git rg \"$1\" | fzf; }; f"
   l = log --graph --decorate --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
   br =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
-  brr = branch -a --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   wip = !git add -A && git commit -am "WIP" && git push --no-verify
   res = !git reset --hard
   cm = "!f() { git commit -m \"[$(git rev-parse --abbrev-ref HEAD)] $1\"; }; f"
