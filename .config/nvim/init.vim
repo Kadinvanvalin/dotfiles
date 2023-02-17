@@ -2,7 +2,12 @@
 " https://blog.logrocket.com/configuring-vim-rust-development/
 " https://blog.logrocket.com/configuring-vim-rust-development/#example-configuration-vim
 " setup vim-plug {{{
-
+" disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+" disable arrow keys end
   "Note: install vim-plug if not present
   if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -24,6 +29,7 @@ set encoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
