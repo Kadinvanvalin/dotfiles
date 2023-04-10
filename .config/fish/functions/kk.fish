@@ -1,4 +1,4 @@
-function ks
+function kk
     if test -z "$argv[1]"
         la .
     else if test -f "$argv[1]"
