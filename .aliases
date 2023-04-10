@@ -15,6 +15,7 @@ alias fvim='vim $(fzf_dir)'
 alias fidea='idea $(fzf_dir)'
 alias f='cd $(fzf_dir)'
 alias g="git"
+alias win-help='bat ~/.amethyst.yml'
 
 
 # Kill a process on a specified port
