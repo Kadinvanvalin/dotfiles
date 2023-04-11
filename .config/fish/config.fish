@@ -10,7 +10,7 @@ zoxide init fish | source
 fish_add_path /usr/local/bin/
 
 fish_add_path $HOME/.local/bin
-
+fish_add_path /opt/homebrew/bin
 alias dbstart='nohup VBoxHeadless --startvm "Oracle11g32" &> /dev/null &'
 alias dbstop='VBoxManage controlvm Oracle11g32 poweroff'
 set DEVDB_HOST devdb.db.cj.com
@@ -27,5 +27,6 @@ thefuck --alias | source
 
 # Setting PATH for Python 3.9
 # The original version is saved in /Users/kadvanv/.config/fish/config.fish.pysave
- fish_add_path /Library/Frameworks/Python.framework/Versions/3.9/bin
- starship init fish | source
+fish_add_path /Library/Frameworks/Python.framework/Versions/3.9/bin
+starship init fish | source
+neofetch
