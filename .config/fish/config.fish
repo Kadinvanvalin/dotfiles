@@ -28,3 +28,4 @@ thefuck --alias | source
 # Setting PATH for Python 3.9
 # The original version is saved in /Users/kadvanv/.config/fish/config.fish.pysave
  fish_add_path /Library/Frameworks/Python.framework/Versions/3.9/bin
+ starship init fish | source
