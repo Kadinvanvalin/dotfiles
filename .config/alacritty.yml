@@ -13,6 +13,7 @@ env:
   TERM: xterm-256color
 
 window:
+  option_as_alt: Both
   decorations: None
 # Background opacity
 #
@@ -813,7 +814,7 @@ mouse:
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-key_bindings:
+#key_bindings:
     # (Windows, Linux, and BSD only)
     #  - { key: V,         mods: Control|Shift, action: Paste                       }
     #- { key: C,         mods: Control|Shift, action: Copy                        }
@@ -834,33 +835,33 @@ key_bindings:
 #  - { key: Space, mods: Shift, chars: "\x5c\x08 " }
   # Vi Mode
   #- { key: Space,  mods: Command|Shift, mode: ~Search,    action: ToggleViMode            }
-  - { key: Comma, mods: Command, chars: "\x02," }
-  - { key: D, mods: Command, chars: "\x02K" }
-  - { key: G, mods: Command, chars: "\x02g" }
-  - { key: K, mods: Command, chars: "\x02s" }
-  - { key: Key1, mods: Command, chars: "\x021" }
-  - { key: Key2, mods: Command, chars: "\x022" }
-  - { key: Key3, mods: Command, chars: "\x023" }
-  - { key: Key4, mods: Command, chars: "\x024" }
-  - { key: Key5, mods: Command, chars: "\x025" }
-  - { key: Key6, mods: Command, chars: "\x026" }
-  - { key: Key7, mods: Command, chars: "\x027" }
-  - { key: Key8, mods: Command, chars: "\x028" }
-  - { key: Key9, mods: Command, chars: "\x029" }
-  - { key: L, mods: Command, chars: "\x02L" }
-  - { key: LBracket, mods: Command, chars: "\x02[" }
-  - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
-  - { key: E, mods: Command|Shift, chars: "\x02%" }
-    # E splits tmux
-  - { key: E, mods: Command, chars: "\x02\"" }
-    # O key toggles through the open panes
-  - { key: O, mods: Command, chars: "\x02o" }
-  - { key: Q, mods: Command, chars: ":q\n" }
-  - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
-  - { key: S, mods: Command, chars: ":w\n" }
-  - { key: S, mods: Command|Shift, chars: ":wa\n" }
-  - { key: Semicolon, mods: Command, chars: "\x02:" }
-  - { key: T, mods: Command, chars: "\x02c" }
-  - { key: J, mods: Command, chars: "\x02\x54" }
-  - { key: W, mods: Command, chars: "\x02x" }
-  - { key: Z, mods: Command, chars: "\x02z" }
+#  - { key: Comma, mods: Command, chars: "\x02," }
+#  - { key: D, mods: Command, chars: "\x02K" }
+#  - { key: G, mods: Command, chars: "\x02g" }
+#  - { key: K, mods: Command, chars: "\x02s" }
+#  - { key: Key1, mods: Command, chars: "\x021" }
+#  - { key: Key2, mods: Command, chars: "\x022" }
+#  - { key: Key3, mods: Command, chars: "\x023" }
+#  - { key: Key4, mods: Command, chars: "\x024" }
+#  - { key: Key5, mods: Command, chars: "\x025" }
+#  - { key: Key6, mods: Command, chars: "\x026" }
+#  - { key: Key7, mods: Command, chars: "\x027" }
+#  - { key: Key8, mods: Command, chars: "\x028" }
+#  - { key: Key9, mods: Command, chars: "\x029" }
+#  - { key: L, mods: Command, chars: "\x02L" }
+#  - { key: LBracket, mods: Command, chars: "\x02[" }
+#  - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
+#  - { key: E, mods: Command|Shift, chars: "\x02%" }
+#    # E splits tmux
+#  - { key: E, mods: Command, chars: "\x02\"" }
+#    # O key toggles through the open panes
+#  - { key: O, mods: Command, chars: "\x02o" }
+#  - { key: Q, mods: Command, chars: ":q\n" }
+#  - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
+#  - { key: S, mods: Command, chars: ":w\n" }
+#  - { key: S, mods: Command|Shift, chars: ":wa\n" }
+#  - { key: Semicolon, mods: Command, chars: "\x02:" }
+#  - { key: T, mods: Command, chars: "\x02c" }
+#  - { key: J, mods: Command, chars: "\x02\x54" }
+#  - { key: W, mods: Command, chars: "\x02x" }
+#  - { key: Z, mods: Command, chars: "\x02z" }

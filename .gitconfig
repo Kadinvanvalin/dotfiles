@@ -52,5 +52,7 @@
   # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
   squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   aka = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+ whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+ whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 [pull]
   rebase = true

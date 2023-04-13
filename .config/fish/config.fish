@@ -19,7 +19,7 @@ set DEVDB_PORT 1521
 set DEVDB_SID devdb
 set BUILD_USER spud
 alias main='cd ~/gitlab.cj.dev/cjdev/main'
-alias ts='tmux-sessionizer'
+alias ts='zellij-sessionizer'
 fish_add_path ~/.cargo/bin
 fish_add_path ~/gitlab.cj.dev/kvanvalin/aws-access
 
@@ -29,4 +29,3 @@ thefuck --alias | source
 # The original version is saved in /Users/kadvanv/.config/fish/config.fish.pysave
 fish_add_path /Library/Frameworks/Python.framework/Versions/3.9/bin
 starship init fish | source
-neofetch
