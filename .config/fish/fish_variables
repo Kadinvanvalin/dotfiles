@@ -31,4 +31,4 @@ SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/Users/kadvanv/\x2elocal/bin\x1e/Library/Frameworks/Python\x2eframework/Versions/3\x2e10/lib/python3\x2e10/site\x2dpackages/pip\x1e/Library/Frameworks/Python\x2eframework/Versions/3\x2e10/lib/python3\x2e10/site\x2dpackages\x1e/Users/kadvanv/\x2ecargo/bin\x1e/Users/kadvanv/Library/Python/3\x2e10/bin\x1e/usr/local/bin
+SETUVAR fish_user_paths:/Library/Frameworks/Python\x2eframework/Versions/3\x2e9/bin\x1e/Users/kadvanv/gitlab\x2ecj\x2edev/kvanvalin/aws\x2daccess\x1e/Users/kadvanv/\x2elocal/bin\x1e/Library/Frameworks/Python\x2eframework/Versions/3\x2e10/lib/python3\x2e10/site\x2dpackages/pip\x1e/Library/Frameworks/Python\x2eframework/Versions/3\x2e10/lib/python3\x2e10/site\x2dpackages\x1e/Users/kadvanv/\x2ecargo/bin\x1e/Users/kadvanv/Library/Python/3\x2e10/bin\x1e/usr/local/bin

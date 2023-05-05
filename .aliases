@@ -11,9 +11,16 @@ alias tree="exa --tree"
 function fzf_dir(){
   fd --type directory --exclude Library --max-depth 3 ^ ~/ | fzf --preview 'exa -aI ".git" --git --git-ignore --tree --long --level=2 {}'
 }
+function test(){
+            selected_name=$(basename "$1" | tr . _);
+              zellij attach -c $selected_name
+              echo $1
+}
+alias zss = 'cd $(test $(zs))'
 alias fvim='vim $(fzf_dir)'
 alias fidea='idea $(fzf_dir)'
 alias f='cd $(fzf_dir)'
+alias zss = 'cd $(test $(zs))'
 alias g="git"
 alias win-help='bat ~/.amethyst.yml'
 

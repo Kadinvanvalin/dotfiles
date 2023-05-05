@@ -19,7 +19,7 @@ set DEVDB_PORT 1521
 set DEVDB_SID devdb
 set BUILD_USER spud
 alias main='cd ~/gitlab.cj.dev/cjdev/main'
-alias ts='zellij-sessionizer'
+
 fish_add_path ~/.cargo/bin
 fish_add_path ~/gitlab.cj.dev/kvanvalin/aws-access
 
