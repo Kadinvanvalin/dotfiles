@@ -9,11 +9,11 @@ Thumbs.db
 .colima
 !.colima/colima.yml
 .local/share
-.config/coc
- .config/configstore/update-notifier-nodemon.json
-        .config/fish/config.fish.pysave
-        .config/neofetch/
-        .local/bin/access-aws.sh
-        .local/bin/aws-access
-        .local/bin/zellij-sessionizer
-        .local/state/
+.config/coc/*
+.config/configstore
+.config/fish/config.fish.pysave
+.config/neofetch/
+.local/bin/access-aws.sh
+.local/bin/aws-access
+.local/bin/zellij-sessionizer
+.local/state/
