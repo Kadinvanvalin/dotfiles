@@ -11,6 +11,7 @@ Thumbs.db
 .local/share
 .config/coc/*
 .config/configstore
+.config/fish/fish_variables
 .config/fish/config.fish.pysave
 .config/neofetch/
 .local/bin/access-aws.sh
