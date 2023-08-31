@@ -53,8 +53,8 @@ eval "$(zoxide init zsh)"
 # . $HOME/.asdf/asdf.sh
 # . $HOME/.asdf/completions/asdf.bash
 
-# Create tmux by default
-# if [ -z "$TMUX" ]
-# then
-#     tmux attach -t TMUX || tmux new -s TMUX
-# fi
+Create tmux by default
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX
+fi

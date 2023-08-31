@@ -22,6 +22,7 @@ alias fidea='idea $(fzf_dir)'
 alias f='cd $(fzf_dir)'
 alias zss = 'cd $(test $(zs))'
 alias g="git"
+alias tz="tmux-sessionizer"
 alias win-help='bat ~/.amethyst.yml'
 
 
