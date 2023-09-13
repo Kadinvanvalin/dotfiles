@@ -38,7 +38,7 @@ Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
-
+Plug 'dapplebeforedawn/vim-typing-practice'
  " Completion framework:
     Plug 'hrsh7th/nvim-cmp'
 
