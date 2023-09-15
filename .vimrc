@@ -1,3 +1,6 @@
+set hidden " allows you to switch buffers without a prompt to save
+
+
 syntax on               " enable syntax highlighting
 set cursorline          " highlight the current line
 " set background=dark   " darker color scheme
