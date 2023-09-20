@@ -1,0 +1,15 @@
+# Use custom format
+# Move the directory to the second line
+format = '$all$directory$character'
+
+[git_metrics]
+disabled = false
+#format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[status]
+style = 'bg:blue'
+symbol = '🔴 '
+success_symbol = '🟢 SUCCESS'
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
