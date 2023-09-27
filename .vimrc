@@ -13,7 +13,7 @@ set noshowmode            " show INSERT, VISUAL, etc. mode
 set showmatch           " show matching brackets
 set autoindent smartindent  " auto/smart indent
 set smarttab            " better backspace and tab functionality
-set scrolloff=5         " show at least 5 lines above/below
+set scrolloff=8         " show at least 5 lines above/below
 set encoding=UTF-8
 filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting

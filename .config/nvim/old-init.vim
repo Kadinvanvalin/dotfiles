@@ -1,3 +1,8 @@
+" load .vimrc if it exists
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+source ~/.vimrc
+
 " https://betterprogramming.pub/setting-up-neovim-for-web-development-in-2020-d800de3efacd
 " https://blog.logrocket.com/configuring-vim-rust-development/
 " https://blog.logrocket.com/configuring-vim-rust-development/#example-configuration-vim
