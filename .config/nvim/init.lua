@@ -66,7 +66,7 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
-
+  'renerocksai/telekasten.nvim',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -323,6 +323,8 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+-- Launch panel if nothing is typed after <leader>z
+vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -537,6 +539,8 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
+require('telekasten').setup({
+  home = vim.fn.expand("~/github.com/kadinvanvalin/notes"), -- Put the name of your notes directory here
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
