@@ -14,7 +14,6 @@ env:
 
 window:
   option_as_alt: Both
-  decorations: None
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
