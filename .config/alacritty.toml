@@ -29,7 +29,7 @@ foreground = "0xd0d0d0"
 TERM = "xterm-256color"
 
 [font]
-size = 16.0
+size = 15.0
 
 [font.bold]
 family = "Comic Code Ligatures"
@@ -41,7 +41,6 @@ style = "Bold Italic"
 
 [font.italic]
 family = "Comic Code Ligatures"
-
 style = "Italic"
 
 [font.normal]
