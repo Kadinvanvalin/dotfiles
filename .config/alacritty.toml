@@ -60,8 +60,10 @@ bindings = [
 	{ key = "Key4",     mods = "Command",       chars = "\u00024" }, # tmux tab 4
 	{ key = "T",       mods = "Command",       chars = "\u0002c" }, # tmux new tab 
 	{ key = "W",       mods = "Command",       chars = "\u0002x" }, # tmux close tab 
-	{ key = "H",       mods = "Command|Shift",       chars = "\u0002p" }, # tmux previous tab RBracket and RBracket seem to currently be broken 
-	{ key = "L",       mods = "Command|Shift",       chars = "\u0002n" }, # tmux next tab 
+	{ key = 33,       mods = "Command|Shift",       chars = "\u0002p" }, # tmux previous tab RBracket and RBracket seem to currently be broken 
+	{ key = 30,       mods = "Command|Shift",       chars = "\u0002n" }, # tmux next tab 
+	{ key: 33,	 mods: "Command", chars: "\u000f" } # navigate back in vim (ctrl+o)
+	{ key: 30,       mods: "Command", chars: "\u0009" } # navigate forward in vim (ctrl+i)
 ]
 [mouse]
 hide_when_typing = true
