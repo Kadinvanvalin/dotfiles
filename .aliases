@@ -16,11 +16,11 @@ function test(){
               zellij attach -c $selected_name
               echo $1
 }
-alias zss = 'cd $(test $(zs))'
+alias zss='cd $(test $(zs))'
 alias fvim='vim $(fzf_dir)'
 alias fidea='idea $(fzf_dir)'
 alias f='cd $(fzf_dir)'
-alias zss = 'cd $(test $(zs))'
+alias zss='cd $(test $(zs))'
 alias g="git"
 
 alias win-help='bat ~/.amethyst.yml'

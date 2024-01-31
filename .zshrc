@@ -32,6 +32,8 @@ export PS1="$geerling_prompt"
 # Custom $PATH with extra locations.
 export PATH=/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/Library/Python/3.10/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin/debug:$PATH
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 # Include alias file (if present) containing aliases for ssh, etc.
@@ -53,8 +55,9 @@ eval "$(zoxide init zsh)"
 # . $HOME/.asdf/asdf.sh
 # . $HOME/.asdf/completions/asdf.bash
 
-Create tmux by default
+# Create tmux by default
 if [ -z "$TMUX" ]
 then
     tmux attach -t TMUX || tmux new -s TMUX
 fi
+eval "$(starship init zsh)"
