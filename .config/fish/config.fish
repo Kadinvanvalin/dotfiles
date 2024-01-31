@@ -10,6 +10,7 @@ zoxide init fish | source
 fish_add_path /usr/local/bin/
 
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.local/bin/debug
 fish_add_path /opt/homebrew/bin
 alias dbstart='nohup VBoxHeadless --startvm "Oracle11g32" &> /dev/null &'
 alias dbstop='VBoxManage controlvm Oracle11g32 poweroff'
