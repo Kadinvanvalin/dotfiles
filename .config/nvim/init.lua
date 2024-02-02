@@ -118,6 +118,11 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'nvim-lua/plenary.nvim', -- dep of metal, scalas lsp
   {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  {
     "scalameta/nvim-metals",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -604,11 +609,10 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  groovyls = { },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -692,5 +696,53 @@ cmp.setup {
 require('telekasten').setup({
   home = vim.fn.expand("~/github.com/kadinvanvalin/notes"), -- Put the name of your notes directory here
 })
+local harpoon = require('harpoon')
+harpoon:setup({})
+
+-- basic telescope configuration
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
+
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({}),
+    }):find()
+end
+function _G.git_diff(opts)
+    local file_paths = {}
+    local pickers = require("telescope.pickers")
+  local finders = require "telescope.finders"
+  local conf = require("telescope.config").values
+  list = vim.fn.systemlist('git diff --name-only main')
+
+  pickers.new(opts, {
+    prompt_title = "git diff",
+    finder = finders.new_table { results = list },
+    previewer = conf.file_previewer({}),
+    sorter = conf.generic_sorter(opts)
+  }):find()
+end
+
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set('n', '<leader>gd', ':lua git_diff()<CR>')
+vim.keymap.set("n", "<C-t>", function() harpoon:list():append() end)
+
+vim.keymap.set("n", "<C-y>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-u>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-i>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-o>", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+--  vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+-- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
