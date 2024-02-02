@@ -40,6 +40,50 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+-- [[ Configure LSP ]]
+--  This function gets run when an LSP connects to a particular buffer.
+local on_attach = function(_, bufnr)
+  -- NOTE: Remember that lua is a real programming language, and as such it is possible
+  -- to define small helper and utility functions so you don't have to repeat yourself
+  -- many times.
+  --
+  -- In this case, we create a function that lets us more easily define mappings specific
+  -- for LSP related items. It sets the mode, buffer and description for us each time.
+  local nmap = function(keys, func, desc)
+    if desc then
+      desc = 'LSP: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  end
+
+  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+  -- See `:help K` for why this keymap
+  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+  -- Lesser used LSP functionality
+  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+  nmap('<leader>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, '[W]orkspace [L]ist Folders')
+
+  -- Create a command `:Format` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    vim.lsp.buf.format()
+  end, { desc = 'Format current buffer with LSP' })
+end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.wo.relativenumber = true
@@ -72,7 +116,151 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'nvim-lua/plenary.nvim', -- dep of metal, scalas lsp
+  {
+    "scalameta/nvim-metals",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "mfussenegger/nvim-dap",
+        config = function(self, opts)
+          -- Debug settings if you're using nvim-dap
+          local dap = require("dap")
 
+          dap.configurations.scala = {
+            {
+              type = "scala",
+              request = "launch",
+              name = "RunOrTest",
+              metals = {
+                runType = "runOrTestFile",
+                --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+              },
+            },
+            {
+              type = "scala",
+              request = "launch",
+              name = "Test Target",
+              metals = {
+                runType = "testTarget",
+              },
+            },
+          }
+        end
+      },
+    },
+ft = { "scala", "sbt", "java" },
+    opts = function()
+      local metals_config = require("metals").bare_config()
+      -- Example of settings
+      metals_config.settings = {
+        showImplicitArguments = true,
+        excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+      }
+
+      -- *READ THIS*
+      -- I *highly* recommend setting statusBarProvider to true, however if you do,
+      -- you *have* to have a setting to display this in your statusline or else
+      -- you'll not see any messages from metals. There is more info in the help
+      -- docs about this
+      -- metals_config.init_options.statusBarProvider = "on"
+
+      -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
+      metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+       metals_config.on_attach = function(_, bufnr)
+         require("metals").setup_dap()
+          on_attach(_, bufnr)
+      end
+
+--        -- LSP mappings
+--        vim.keymap.set("n", "gD", vim.lsp.buf.definition)
+--        vim.keymap.set("n", "K", vim.lsp.buf.hover)
+--        vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+--        -- vim.keymap.set("n", "gr", vim.lsp.buf.references)
+--        vim.keymap.set("n", 'gr', require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences'})
+--
+--        vim.keymap.set("n", "gds", vim.lsp.buf.document_symbol)
+--        vim.keymap.set("n", "gws", vim.lsp.buf.workspace_symbol)
+--        vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run)
+--        vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help)
+--        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+--        vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+--        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+--
+--        vim.keymap.set("n", "<leader>ws", function()
+--          require("metals").hover_worksheet()
+--        end)
+--
+--        -- all workspace diagnostics
+--        vim.keymap.set("n", "<leader>aa", vim.diagnostic.setqflist)
+--
+--        -- all workspace errors
+--        vim.keymap.set("n", "<leader>ae", function()
+--          vim.diagnostic.setqflist({ severity = "E" })
+--        end)
+--
+--        -- all workspace warnings
+--        vim.keymap.set("n", "<leader>aw", function()
+--          vim.diagnostic.setqflist({ severity = "W" })
+--        end)
+--
+--        -- buffer diagnostics only
+--        vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist)
+--
+--        vim.keymap.set("n", "[c", function()
+--          vim.diagnostic.goto_prev({ wrap = false })
+--        end)
+--
+--        vim.keymap.set("n", "]c", function()
+--          vim.diagnostic.goto_next({ wrap = false })
+--        end)
+--
+--        -- Example vim.keymap.setpings for usage with nvim-dap. If you don't use that, you can
+--        -- skip these
+--        vim.keymap.set("n", "<leader>dc", function()
+--          require("dap").continue()
+--        end)
+--
+--        vim.keymap.set("n", "<leader>dr", function()
+--          require("dap").repl.toggle()
+--        end)
+--
+--        vim.keymap.set("n", "<leader>dK", function()
+--          require("dap.ui.widgets").hover()
+--        end)
+--
+--        vim.keymap.set("n", "<leader>dt", function()
+--          require("dap").toggle_breakpoint()
+--        end)
+--
+--        vim.keymap.set("n", "<leader>dso", function()
+--          require("dap").step_over()
+--        end)
+--
+--        vim.keymap.set("n", "<leader>dsi", function()
+--          require("dap").step_into()
+--        end)
+--
+--        vim.keymap.set("n", "<leader>dl", function()
+--          require("dap").run_last()
+--        end)
+--      end
+--
+      return metals_config
+    end,
+    config = function(self, metals_config)
+      local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = self.ft,
+        callback = function()
+          require("metals").initialize_or_attach(metals_config)
+        end,
+        group = nvim_metals_group,
+      })
+    end
+
+  },
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -403,50 +591,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- [[ Configure LSP ]]
---  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
-  local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-  end
-
-  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-  -- See `:help K` for why this keymap
-  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-  -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  nmap('<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
-end
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -460,6 +604,7 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
+  
   rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs'} },
