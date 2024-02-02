@@ -71,7 +71,7 @@ hide_when_typing = true
 history = 5000
 
 [shell]
-program = "/usr/local/bin/fish"
+program = "/bin/zsh"
 
 [window]
 decorations = "full"
