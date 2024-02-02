@@ -18,3 +18,8 @@ Thumbs.db
 .local/bin/aws-access
 .local/bin/zellij-sessionizer
 .local/state/
+.local/bin/debug/
+.local/bin/release/
+.local/bin/.rustc_info.json
+.config/fish/fish_variables
+.config/nvim/lazy-lock.json
