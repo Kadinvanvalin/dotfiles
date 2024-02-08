@@ -22,7 +22,9 @@ alias fidea='idea $(fzf_dir)'
 alias f='cd $(fzf_dir)'
 alias zss='cd $(test $(zs))'
 alias g="git"
-
+function rmn() {
+	find . -type d -name node_modules -maxdepth 1 -exec rm -rf {} \+
+}
 alias win-help='bat ~/.amethyst.yml'
 
 
