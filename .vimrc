@@ -9,7 +9,7 @@ set nobackup            " don't create pointless backup files; Use VCS instead
 set autoread            " watch for file changes
 set number              " show line numbers
 set showcmd             " show selection metadata
-set noshowmode            " show INSERT, VISUAL, etc. mode
+" set noshowmode            " show INSERT, VISUAL, etc. mode
 set showmatch           " show matching brackets
 set autoindent smartindent  " auto/smart indent
 set smarttab            " better backspace and tab functionality
@@ -19,7 +19,6 @@ filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
 " colorscheme cobalt      " requires cobalt.vim to be in ~/.vim/colors
-
 " column-width visual indication
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#001D2F

@@ -28,12 +28,15 @@ move_down_five_lines=$'\n\n\n\n\n'
 move_up_five_lines=$'\[\033[5A\]'
 geerling_prompt="%F{green} %*%F %F{blue}%3~ %F{white}"$'\n'"$ "
 export PS1="$geerling_prompt"
-
+export SPARK_HOME=/usr/local/Cellar/apache-spark/3.5.1/libexec
 # Custom $PATH with extra locations.
-export PATH=/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/Library/Python/3.10/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/bin/debug:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+# use gnu by default
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 # Include alias file (if present) containing aliases for ssh, etc.
@@ -60,3 +63,6 @@ then
     tmux attach -t TMUX || tmux new -s TMUX
 fi
 eval "$(starship init zsh)"
+
+eval $(thefuck --alias)
+eval "$(atuin init zsh)"
