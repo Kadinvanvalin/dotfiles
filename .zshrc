@@ -11,10 +11,10 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 # https://github.com/junegunn/fzf/wiki/Color-schemes
 # SpaceCamp
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:#dedede,bg:#121212,hl:#666666
- --color=fg+:#eeeeee,bg+:#282828,hl+:#cf73e6
- --color=info:#cf73e6,prompt:#FF0000,pointer:#cf73e6
- --color=marker:#f0d50c,spinner:#cf73e6,header:#91aadf'
+--color=fg:#dedede,bg:#121212,hl:#666666
+--color=fg+:#eeeeee,bg+:#282828,hl+:#cf73e6
+--color=info:#cf73e6,prompt:#FF0000,pointer:#cf73e6
+--color=marker:#f0d50c,spinner:#cf73e6,header:#91aadf'
 
 # Colors.
 export CLICOLOR=1
@@ -30,11 +30,16 @@ geerling_prompt="%F{green} %*%F %F{blue}%3~ %F{white}"$'\n'"$ "
 export PS1="$geerling_prompt"
 export SPARK_HOME=/usr/local/Cellar/apache-spark/3.5.1/libexec
 # Custom $PATH with extra locations.
-export PATH=/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin:usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/usr/local/lib/ruby/gems/3.0.0/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$PATH
+export PATH=/usr/local/git/bin:$PATH
+export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/Library/Python/3.10/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/bin/debug:$PATH
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"
 # use gnu by default
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # Bash-style time output.
@@ -60,7 +65,7 @@ eval "$(zoxide init zsh)"
 # Create tmux by default
 if [ -z "$TMUX" ]
 then
-    tmux attach -t TMUX || tmux new -s TMUX
+  tmux attach -t TMUX || tmux new -s TMUX
 fi
 eval "$(starship init zsh)"
 

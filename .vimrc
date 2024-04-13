@@ -1,6 +1,6 @@
 set hidden " allows you to switch buffers without a prompt to save
 
-
+let mapleader=" "
 syntax on               " enable syntax highlighting
 set cursorline          " highlight the current line
 " set background=dark   " darker color scheme
@@ -49,31 +49,8 @@ set relativenumber
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey 
 set noswapfile
-call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdtree'
-" Plug 'gruvbox-community/gruvbox'
-Plug 'jaredgorski/spacecamp'
-Plug 'https://github.com/jremmen/vim-ripgrep.git'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'rust-lang/rust.vim'
-Plug 'https://github.com/leafgarland/typescript-vim.git'
-Plug 'https://github.com/vim-utils/vim-man.git'
-Plug 'https://github.com/mbbill/undotree.git'
-Plug 'https://github.com/kien/ctrlp.vim.git'
-Plug 'https://github.com/ycm-core/YouCompleteMe.git'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'laher/fuzzymenu.vim'
-Plug 'udalov/kotlin-vim'
-Plug 'ryanoasis/vim-devicons'
-call plug#end()
 " colorscheme gruvbox
 colorscheme spacecamp
 set background=dark
 let NERDTreeShowHidden=1
 
-:map <Space><Space> :Fzm<Enter>
-:map <Bslash><C-h><Space><Bslash><C-h><Space> :FzmOps<Enter>

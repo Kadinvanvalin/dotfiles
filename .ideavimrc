@@ -1,6 +1,6 @@
 "" Source your .vimrc
 source ~/.vimrc
-
+" https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 " set background=dark   " darker color scheme
@@ -10,20 +10,24 @@ map Q gq
 "" Map \r to the Reformat Code action
 "" map \r <Action>(ReformatCode)
 "" https://github.com/citizenmatt/dotfiles/blob/master/ideavimrc
+set NERDTree
+set commentary " gc to comment https://github.com/tpope/vim-commentary/blob/master/doc/commentary.txt
+set highlightedyank
 
-"" Map <leader>d to start debug
+" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)
+"noremap <leader>si :source ~/.ideavimrc<CR>
 
 
-nmap ]e <Action>(GotoNextError)
-nmap [e <Action>(GotoPreviousError)
+"nmap <leader>e :NERDTree <CR> " can't seem to remap command
+" command-e for recents
+nmap  <leader>f <Action>(SearchEverywhere)
+nmap <leader>a <Action>(ToggleBookmark)
+nmap <leader>l <Action>(ShowBookmarks)
 
-
-
-"" Map \b to toggle the breakpoint on the current line
+"nnoremap <leader>gd <Action>(RecentFiles) doesn't work
+"i Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
-nmap gD <Action>(GotoTypeDeclaration)
+nmap gd <Action>(GotoDeclaration)
 " Find more examples here: https://jb.gg/share-ideavimrc
 set showmode
-
-:command SO <Action>(IdeaVim.ReloadVimRc.reload)
