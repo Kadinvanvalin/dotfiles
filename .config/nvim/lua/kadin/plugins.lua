@@ -203,10 +203,7 @@ ft = { "scala", "sbt", "java" },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    commit = "29be0919b91fb59eca9e90690d76014233392bef",
   },
 
   -- "gc" to comment visual regions/lines
