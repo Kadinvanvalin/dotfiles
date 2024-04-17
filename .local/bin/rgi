@@ -1,0 +1,6 @@
+#!/bin/sh
+function f() {
+	rg "$1" -l  | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --bind "enter:become(idea {})"
+}
+
+f $1
