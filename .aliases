@@ -10,12 +10,12 @@ alias ts="tmux-sessionizer"
 # alias la="ls -a"
 # alias ll="ls -la"
 function fzf_dir(){
-  fd --type directory --exclude Library --max-depth 3 ^ ~/ | fzf --preview 'eza -aI ".git" --git --git-ignore --tree --long --level=2 {}'
+	fd --type directory --exclude Library --max-depth 3 ^ ~/ | fzf --preview 'eza -aI ".git" --git --git-ignore --tree --long --level=2 {}'
 }
 function test(){
-            selected_name=$(basename "$1" | tr . _);
-              zellij attach -c $selected_name
-              echo $1
+	selected_name=$(basename "$1" | tr . _);
+	zellij attach -c $selected_name
+		echo $1
 }
 alias zss='cd $(test $(zs))'
 alias fvim='vim $(fzf_dir)'
@@ -31,46 +31,46 @@ alias win-help='bat ~/.amethyst.yml'
 
 # Kill a process on a specified port
 kill_port() {
-  if [ -n "$1" ]
-  then
-    lsof -ti :"$1" | xargs kill -9
-  else
-    echo "Pass in the port number."
-  fi
+	if [ -n "$1" ]
+		then
+			lsof -ti :"$1" | xargs kill -9
+	else
+		echo "Pass in the port number."
+			fi
 }
 
 
 
 function pad {
-  branch=$(git rev-parse --abbrev-ref HEAD)
-  ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
-  open "https://pad.cj.dev/p/${ticket}"
+	branch=$(git rev-parse --abbrev-ref HEAD)
+		ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+		open "https://pad.cj.dev/p/${ticket}"
 }
 function jira {
-  branch=$(git rev-parse --abbrev-ref HEAD)
-  ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
-  open "https://jira.cnvrmedia.net/browse/${ticket}"
+	branch=$(git rev-parse --abbrev-ref HEAD)
+		ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+		open "https://jira.cnvrmedia.net/browse/${ticket}"
 }
 
 
 
 alias code=vim
-alias clone_and_go=". dolly_INNER_clone_and_go.sh"
+alias clone=". dolly_INNER_clone_and_go.sh"
 function branch-name {
-  NAME=$(git branch | grep '*' | sed 's/* //') 
-  DESCRIPTION=$(git config branch."$NAME".description)
-  TEXT=$(cat "$1" | sed '/^#.*/d')
+	NAME=$(git branch | grep '*' | sed 's/* //')
+						DESCRIPTION=$(git config branch."$NAME".description)
+						TEXT=$(cat "$1" | sed '/^#.*/d')
 
-if [ -n "$TEXT" ]
-then
-    echo "$NAME"': '$(cat "$1" | sed '/^#.*/d') > "$1"
-    if [ -n "$DESCRIPTION" ] 
-    then
-       echo "" >> "$1"
-       echo $DESCRIPTION >> "$1"
-    fi
-else
-    echo "Aborting commit due to empty commit message."
-    exit 1
-fi
+		if [ -n "$TEXT" ]
+			then
+				echo "$NAME"': '$(cat "$1" | sed '/^#.*/d') > "$1"
+				if [ -n "$DESCRIPTION" ]
+					then
+						echo "" >> "$1"
+						echo $DESCRIPTION >> "$1"
+						fi
+				else
+					echo "Aborting commit due to empty commit message."
+						exit 1
+						fi
 }
