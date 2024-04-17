@@ -28,6 +28,8 @@
   prompt = false
 [alias]
   fc = "!find_changes $1"
+  pickaxe-regex = "!f() { git log -G \"$1\" }; f"
+  pickaxe-string = "!f() { git log -S \"$1\" }; f"
   ll = log --stat --abbrev-commit
   lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
