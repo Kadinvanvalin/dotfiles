@@ -12,7 +12,7 @@ function ticket() {
 function note() {
  cjpm=$(ticket)
  project_name=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
- open "obsidian://new?vault=notes&file=areas/work/tickets/$project_name/$cjpm&append"
+ open "obsidian://new?vault=notes&file=areas/work/tickets/$cjpm&append"
 }
 
 
