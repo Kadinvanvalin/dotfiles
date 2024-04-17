@@ -41,18 +41,6 @@ kill_port() {
 
 
 
-function pad {
-	branch=$(git rev-parse --abbrev-ref HEAD)
-		ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
-		open "https://pad.cj.dev/p/${ticket}"
-}
-function jira {
-	branch=$(git rev-parse --abbrev-ref HEAD)
-		ticket=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
-		open "https://jira.cnvrmedia.net/browse/${ticket}"
-}
-
-
 
 alias code=vim
 alias clone=". dolly_INNER_clone_and_go.sh"

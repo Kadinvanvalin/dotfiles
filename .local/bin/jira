@@ -1,6 +1,16 @@
 #!/bin/sh
-function jira {
+function ticket() {
   branch=$(git rev-parse --abbrev-ref HEAD)
+  if [[ $branch == "CJPM-"* ]]; then
+    branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+    echo ${branch_to_upper#MOB/}
+  else
+    echo $TICKET
+  fi
+}
+
+function jira {
+  branch=$(ticket)
   branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
   open "https://jira.cnvrmedia.net/browse/${branch_to_upper#MOB/}"
 }

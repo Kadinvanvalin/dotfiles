@@ -72,3 +72,4 @@ eval "$(starship init zsh)"
 eval $(thefuck --alias)
 eval "$(atuin init zsh)"
 export TICKET=$(cat ~/.ticket)
+echo "current ticket: $TICKET"

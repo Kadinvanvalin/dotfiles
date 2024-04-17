@@ -1,12 +1,16 @@
 #!/bin/sh
 function ticket() {
   branch=$(git rev-parse --abbrev-ref HEAD)
-  branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
-  echo ${branch_to_upper#MOB/}
+  if [[ $branch == "CJPM-"* ]]; then
+    branch_to_upper=$(echo "$branch" | tr '[:lower:]' '[:upper:]')
+    echo ${branch_to_upper#MOB/}
+  else
+    echo $TICKET
+  fi
 }
 function pad() {
  cjpm=$(ticket)
-
+  echo $cjpm
   open "https://pad.cj.dev/p/$cjpm"
 }
 
