@@ -1,0 +1,6 @@
+#!/bin/sh
+function find_changes {
+	git log --pretty=format:"%h%Creset -%d %s (%cr) <%an>" --abbrev-commit --date=relative -G$1 | fzf --bind "enter:become(git show {1})"
+}
+
+find_changes $1

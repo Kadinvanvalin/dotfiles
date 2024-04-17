@@ -2,9 +2,9 @@
   name = kadin van valin
   email = kadin@kadin.codes
 [includeIf "gitdir:~/gitlab.cj.dev/"]
-   path = ~/work/.gitconfig
+  path = ~/work/.gitconfig
 [fetch]
-   prune = true
+  prune = true
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
@@ -27,6 +27,7 @@
 [difftool]
   prompt = false
 [alias]
+  fc = "!find_changes $1"
   ll = log --stat --abbrev-commit
   lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
@@ -52,7 +53,7 @@
   # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
   squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   aka = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
- whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
- whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 [pull]
   rebase = true
