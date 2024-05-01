@@ -1,0 +1,20 @@
+#!/bin/sh
+
+function ci() {
+	cd $(git rev-parse --show-toplevel)
+	is_shuttle=$(fd -p shuttle/build.sh)
+if [ -z "${is_shuttle}" ];
+then
+	
+		echo "maybe a jenkins project?"
+	else
+	project_and_slug=$(dolly $(git remote get-url origin) s)
+		slug=$(echo $project_and_slug | cut -d "/" -f 1  | tr '[:upper:]' '[:lower:]')
+		project=$(echo $project_and_slug | cut -d "/" -f 2)
+
+		project_name=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
+		open "https://operations.cj.dev/delivery-landing-page?group=${slug}&project=${project_name}"
+fi
+}
+
+ci
