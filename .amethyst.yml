@@ -1,39 +1,39 @@
 # Use tall and fullscreen layouts
 layouts:
-  - tall
+  #  - tall
   - fullscreen
-  - tall-right
-  - wide
-  - two-pane
-  - 3column-left
-  - middle-wide
-  - 3column-right
-  - 4column-left
-  - 4column-right
+  #  - tall-right
+  #  - wide
+  #  - two-pane
+  #  - 3column-left
+  #  - middle-wide
+  #  - 3column-right
+  #  - 4column-left
+  #  - 4column-right
   - column
   - row
   - floating
-  - widescreen-tall
-  - widescreen-tall-right
-  - bsp
+  #  - widescreen-tall
+  #  - widescreen-tall-right
+  #  - bsp
 
-# Keep default mods
+  # Keep default mods
 mod1:
   - option
   - shift
-#  - command
+  #  - command
 mod2:
   - option
   - shift
   - control
-#  - command
+  #  - command
 
 # Modify the amethyst relaunch to use x and not z
 relaunch-amethyst:
   mod: mod2
   key: x
 
-# Enable focus-follows-mouse
+  # Enable focus-follows-mouse
 #mouse-follows-focus: false
 focus-follows-mouse: true
 

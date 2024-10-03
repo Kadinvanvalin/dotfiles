@@ -42,6 +42,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"
 # use gnu by default
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 # Include alias file (if present) containing aliases for ssh, etc.
@@ -59,17 +61,21 @@ eval "$(zoxide init zsh)"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
+# . $HOME/.asdf/asdf.sh trying mise instead
+# . $HOME/.asdf/completions/asdf.bash
+eval "$(/usr/local/bin/mise activate zsh)" # trying mise
 # Create tmux by default
 if [ -z "$TMUX" ]
 then
   tmux attach -t TMUX || tmux new -s TMUX
 fi
 eval "$(starship init zsh)"
-
+export ZK_NOTEBOOK_DIR=~/github.com/kadinvanvalin/notes
 eval $(thefuck --alias)
 eval "$(atuin init zsh)"
 export TICKET=$(cat ~/.ticket)
 echo "current ticket: $TICKET"
+
+
+
+

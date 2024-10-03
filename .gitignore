@@ -25,3 +25,4 @@ Thumbs.db
 .config/nvim/lazy-lock.json
 .bloop
 .metals
+.mise.toml

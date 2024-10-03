@@ -1,7 +1,6 @@
 require("kadin")
 
 --[[
-
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -92,6 +91,7 @@ vim.wo.relativenumber = true
 vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.9/bin/python3"
 
 
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -126,7 +126,6 @@ vim.wo.signcolumn = 'yes'
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
@@ -261,8 +260,5 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-require('telekasten').setup({
-  home = vim.fn.expand("~/github.com/kadinvanvalin/notes"), -- Put the name of your notes directory here
-})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

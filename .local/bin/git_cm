@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+function f() {
+	branch=$(git rev-parse --abbrev-ref HEAD)
+		if  [[ "$branch" =~ ^(main|master)$ ]]; then
+			echo "Code Improvements"
+		else
+				echo "$branch"
+			fi;
+
+};
+f

@@ -24,6 +24,8 @@ alias fidea='idea $(fzf_dir)'
 alias f='cd $(fzf_dir)'
 alias zss='cd $(test $(zs))'
 alias g="git"
+alias k='kubectl'
+alias fvim='vim $(fzf_dir)'
 function rmn {
 	find . -type d -name node_modules -maxdepth 1 -exec rm -rf {} \+
 }

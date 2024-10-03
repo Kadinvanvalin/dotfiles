@@ -27,7 +27,10 @@
 [difftool]
   prompt = false
 [alias]
+  co = checkout
+  ff = merge --ff-only
   fc = "!find_changes $1"
+  ticket-changes = "!f() { git log --grep \"$1\" }; f"
   pickaxe-regex = "!f() { git log -G \"$1\" }; f"
   pickaxe-string = "!f() { git log -S \"$1\" }; f"
   ll = log --stat --abbrev-commit
@@ -49,13 +52,18 @@
   br =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   wip = !git add -A && git commit -am "WIP" && git push --no-verify
   res = !git reset --hard
-  cm = "!f() { git commit -m \"[$(git rev-parse --abbrev-ref HEAD)] $1\"; }; f"
+  cm = "!f() {  git commit -m \"[$(git_cm)] $1\"; }; f"
   trim = !git branch | grep -v -E 'master|main|development|integration|production' | xargs git branch -D
   amend = commit --amend --no-edit
   # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
   squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   aka = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+  dl = branch -d
+  dlf = branch -D
+  dr = push origin --delete
+  dd = "!f() { git dl $1; git dr $1; }; f"
+  ro = reset --hard @{u} # this does a "force pull" @{u} refers to the upstream branch
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 [pull]
   rebase = true

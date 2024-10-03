@@ -18,13 +18,19 @@ set highlightedyank
 "map <leader>d <Action>(Debug)
 "noremap <leader>si :source ~/.ideavimrc<CR>
 
-
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 "nmap <leader>e :NERDTree <CR> " can't seem to remap command
 " command-e for recents
 nmap  <leader>f <Action>(SearchEverywhere)
 nmap <leader>a <Action>(ToggleBookmark)
 nmap <leader>l <Action>(ShowBookmarks)
-
+nmap <leader>pv <Action>(ActivateProjectToolWindow)
+nmap <leader>rn <Action>(RenameElement)
 "nnoremap <leader>gd <Action>(RecentFiles) doesn't work
 "i Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)

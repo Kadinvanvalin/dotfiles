@@ -20,8 +20,10 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
+  {
+  "zk-org/zk-nvim",
+  }, -- markdown plugin
   -- NOTE: First, some plugins that don't require any configuration
-  'renerocksai/telekasten.nvim',
   'SidOfc/carbon.nvim',
  'mfussenegger/nvim-lint',
   'mbbill/undotree',
