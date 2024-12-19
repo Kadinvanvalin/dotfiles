@@ -56,6 +56,11 @@ if [ -f ~/work/.zprofile ]
 then
   source ~/work/.zprofile
 fi
+
+if [ -d ~/gitlab.cj.dev/attribution/potentially-useful-code ]; then
+  echo "adding bin from potentially useful code"
+  export PATH=$HOME/gitlab.cj.dev/attribution/potentially-useful-code/bin:$PATH
+fi
 eval $(thefuck --alias opps)
 eval "$(zoxide init zsh)"
 # export NVM_DIR="$HOME/.nvm"
