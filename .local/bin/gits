@@ -1,31 +1,24 @@
 #!/bin/sh
 set -e
 
-function cm() {
-	RED='\033[0;31m'
-	NC='\033[0m' # No Color
-	if git show-ref --verify --quiet refs/heads/master
-	then
-	trunk="master"
-
-	elif git show-ref --verify --quiet refs/heads/main
-	then
-	trunk="main"
+RED='\033[0;31m'
+	
+NC='\033[0m' # No Color
+if git show-ref --verify --quiet refs/heads/master
+then
+    trunk="master"
+elif git show-ref --verify --quiet refs/heads/main
+then
+    trunk="main"
 else
-	echo "can't find trunk- expecting master or main"
-	fi
-echo $trunk
-#	git pull origin $trunk
-	last_shared_commit=$(git merge-base HEAD $trunk)
-	last_commit_trunk=$(git rev-parse $trunk)
-echo $last_shared_commit
-echo $last_shared_trunk
-	if [ "$last_shared_commit" != "$last_commit_trunk" ]; then
-		echo "${RED}There are commits on $trunk that aren't on your branch${NC}"
-		git log --oneline HEAD..$trunk
-		exit 1;
-	fi
-	echo "commit"
-};
-cm
+    echo "${RED}Can't find trunk- expecting master or main${NC}"
+    exit 1;
+fi	
+last_shared_commit=$(git merge-base HEAD $trunk)
+last_commit_trunk=$(git rev-parse $trunk)
+if [ "$last_shared_commit" != "$last_commit_trunk" ]; then
+    echo "${RED}There are commits on $trunk that aren't on your branch${NC}"
+    git log --oneline HEAD..$trunk
+    exit 1;
+fi
 
