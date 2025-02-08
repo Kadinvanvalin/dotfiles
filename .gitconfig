@@ -52,7 +52,7 @@
   br =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   wip = !git add -A && git commit -am "WIP" && git push --no-verify
   res = !git reset --hard
-  cm = "!f() {  gits && git commit -m \"[$(git_cm)] $1\"; }; f"
+  cm = "!f() {  gits && echo "Branch is $(git branch-age) old. Do you need to merge?" &&  git commit -m \"[$(git_cm)] $1\"; }; f"
   trim = !git branch | grep -v -E 'master|main|development|integration|production' | xargs git branch -D
   amend = commit --amend --no-edit
   # from https://stackoverflow.com/questions/5189560/how-do-i-squash-my-last-n-commits-together/5201642#5201642
@@ -65,5 +65,6 @@
   dd = "!f() { git dl $1; git dr $1; }; f"
   ro = reset --hard @{u} # this does a "force pull" @{u} refers to the upstream branch
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  branch-age = "!f() { git reflog --date=relative --pretty=format:'%cr' HEAD | tail -n 1; };f"
 [pull]
   rebase = true
