@@ -1,7 +1,7 @@
 alias jeeves-edit-playbook="vi ~/github.com/kadinvanvalin/mac-dev-playbook/config.yml"
 alias jeeves-run-playbook="cd ~/github.com/kadinvanvalin/mac-dev-playbook; ansible-playbook main.yml --ask-become-pass"
 alias please='sudo $(fc -ln -1)'
-alias java8="asdf shell java 1.8"
+alias java8="asdf shell java corretto-8.442.06.1"
 alias java12="asdf shell java 12"
 alias ls="eza -a"
 alias ll="eza -alh"
@@ -46,8 +46,6 @@ kill_port() {
 
 
 
-
-alias code=vim
 alias clone=". dolly_INNER_clone_and_go.sh"
 function branch-name {
 	NAME=$(git branch | grep '*' | sed 's/* //')

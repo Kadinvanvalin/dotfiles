@@ -22,7 +22,8 @@ Thumbs.db
 .local/bin/release/
 .local/bin/.rustc_info.json
 .config/fish/fish_variables
-.config/nvim/lazy-lock.json
+.config/old-nvim/lazy-lock.json
 .bloop
 .metals
 .mise.toml
+/.config/gits/

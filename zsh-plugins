@@ -1,0 +1,16 @@
+#! /bin/bash
+ echo "Shell arrays don't have commas in them - the elements are separated by whitespace"
+
+plugins=(
+  "zsh-users/zsh-syntax-highlighting"
+  "zsh-users/zsh-completions"
+  "zsh-users/zsh-autosuggestions"
+  "marlonrichert/zsh-autocomplete"
+  "zdharma-continuum/fast-syntax-highlighting"
+  "Aloxaf/fzf-tab"
+)
+for plugin in "${plugins[@]}" ; do
+  echo " basename is a command-line utility in Unix-like operating systems that strips the directory and suffix from file names."
+  echo "It is commonly used in shell scripts to extract the file name from a full path."
+        git clone https://github.com/"$plugin" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/"$(basename "$plugin")"
+done

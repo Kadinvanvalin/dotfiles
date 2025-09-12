@@ -1,0 +1,4 @@
+#!/bin/bash
+cmd="$(fc -ln -1)"
+notify-send "running" "$cmd"
+

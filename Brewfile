@@ -1,0 +1,125 @@
+tap "coursier/formulas"
+tap "felixkratz/formulae"
+tap "helix-editor/helix"
+tap "homebrew/bundle"
+tap "nikitabobko/tap"
+tap "remotemobprogramming/brew"
+tap "supabase/tap"
+brew "ammonite-repl"
+brew "ansible"
+brew "apache-spark"
+brew "argo"
+brew "atuin"
+brew "autoconf"
+brew "awscli"
+brew "bat"
+brew "carthage"
+brew "cassandra"
+brew "chroma"
+brew "cmake"
+brew "colima" # docker backend
+brew "coreutils"
+# brew "cowsay"
+# brew "cpulimit"
+brew "csvkit"
+brew "docker"
+brew "docker-buildx"
+brew "docker-compose"
+brew "entr"
+brew "exercism"
+brew "eza"
+brew "faiss"
+brew "fd"
+brew "findutils"
+brew "fzf"
+brew "gh"
+brew "gifsicle"
+brew "git"
+brew "gnupg"
+brew "gnupg@1.4"
+brew "go"
+brew "graphviz"
+brew "grpcurl"
+brew "httpie"
+brew "iperf"
+brew "jq"
+brew "kafka"
+brew "kubeseal"
+brew "lunchy"
+brew "mas"
+brew "maven"
+brew "minikube"
+brew "mkcert"
+brew "mob"
+brew "mockserver"
+brew "mono"
+brew "neovim"
+brew "nginx"
+brew "nmap"
+brew "node"
+brew "node-build"
+brew "nss"
+brew "nvm"
+brew "ollama"
+brew "php"
+brew "poetry"
+brew "pv"
+brew "redis"
+brew "ripgrep"
+brew "sbt"
+brew "ssh-copy-id"
+brew "starship"
+brew "telnet"
+brew "the_silver_searcher"
+brew "thefuck"
+brew "tmux"
+brew "vim"
+brew "wget"
+brew "wrk"
+brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "coursier/formulas/coursier"
+brew "felixkratz/formulae/borders"
+brew "felixkratz/formulae/sketchybar"
+brew "supabase/tap/supabase"
+cask "1password", args: { appdir: "/Applications" }
+cask "aerospace"
+cask "alacritty", args: { appdir: "/Applications" }
+cask "alfred", args: { appdir: "/Applications" }
+cask "amazon-chime", args: { appdir: "/Applications" }
+cask "amethyst", args: { appdir: "/Applications" }
+cask "bruno"
+# cask "contexts", args: { appdir: "/Applications" }
+cask "dropbox", args: { appdir: "/Applications" }
+cask "font-hack-nerd-font"
+# cask "ghostty"
+cask "hammerspoon"
+cask "hoppscotch"
+cask "insomnia"
+cask "intellij-idea", args: { appdir: "/Applications" }
+# cask "jordanbaird-ice" got ride of the bar completely
+cask "keycastr", args: { appdir: "/Applications" }
+# cask "little-snitch", args: { appdir: "/Applications" }
+# cask "lm-studio"
+# cask "menumeters", args: { appdir: "/Applications" }
+# cask "obs"
+cask "obsidian", args: { appdir: "/Applications" }
+# cask "rectangle"
+cask "sf-symbols"
+cask "slack"
+cask "tuple"
+cask "vagrant", args: { appdir: "/Applications" }
+cask "visualvm"
+cask "vscodium", args: { appdir: "/Applications" }
+# cask "whichspace", args: { appdir: "/Applications" }
+# cask "wireshark-app", args: { appdir: "/Applications" }
+cask "zoom"
+# mas "GarageBand", id: 682658836
+# mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Microsoft To Do", id: 1274495053
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+vscode "dart-code.dart-code"
+vscode "dart-code.flutter"

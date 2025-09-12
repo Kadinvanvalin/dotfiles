@@ -27,8 +27,8 @@ highlight ColorColumn ctermbg=235 guibg=#001D2F
 set autoindent          " auto indenting
 set smartindent         " smart indenting
 set expandtab           " spaces instead of tabs
-set tabstop=2           " 2 spaces for tabs
-set shiftwidth=2        " 2 spaces for indentation
+set tabstop=4           " 2 spaces for tabs
+set shiftwidth=4        " 2 spaces for indentation
 
 " bells
 set noerrorbells        " turn off audio bell
@@ -47,7 +47,7 @@ set undodir=~/.vim/undodir
 set incsearch
 set relativenumber
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey 
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 set noswapfile
 " colorscheme gruvbox
 colorscheme spacecamp
