@@ -1,20 +1,18 @@
 #!/bin/sh
 
-function ci() {
-	cd $(git rev-parse --show-toplevel)
-	is_shuttle=$(fd -p shuttle/build.sh)
-if [ -z "${is_shuttle}" ];
-then
-	
-		echo "maybe a jenkins project?"
-	else
-	project_and_slug=$(dolly $(git remote get-url origin) s)
-		slug=$(echo $project_and_slug | cut -d "/" -f 1  | tr '[:upper:]' '[:lower:]')
-		project=$(echo $project_and_slug | cut -d "/" -f 2)
-
-		project_name=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
-		open "https://operations.cj.dev/delivery-landing-page?group=${slug}&project=${project_name}"
-fi
+ci() {
+  GIT_ROOT=$(git rev-parse --show-toplevel)
+  cd "$GIT_ROOT"
+  
+  GITLAB_CI=".gitlab-ci.*"
+  if [ -e $GITLAB_CI ]; then
+    local url="$(gits -o remote)/-/pipelines/"
+    open $url
+  elif [ $(basename $GIT_ROOT) == "main" ]; then
+    open "https://deploy.jenkins.cj.dev/"
+    open "https://branchbuilder.jenkins.cj.dev/job/main_git_branchbuilder_pipeline_underscore/"
+  else
+    echo "File '$FILE' does not exist."
+  fi
 }
-
 ci

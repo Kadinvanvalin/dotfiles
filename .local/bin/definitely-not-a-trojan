@@ -1,5 +1,0 @@
-query="{query}"
-
-echo -n $query
-
-echo "$(date) - $query" >> ~/github.com/kadinvanvalin/notes/Inbox/inbox.md 
