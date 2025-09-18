@@ -28,9 +28,9 @@ function icon_map() {
   "Airmail")
     icon_result=":airmail:"
     ;;
-#  "Alacritty")
-#    icon_result=":alacritty:"
-#    ;;
+  "Alacritty")
+    icon_result=":alacritty:"
+    ;;
   "Alfred")
     icon_result=":alfred:"
     ;;
@@ -52,9 +52,9 @@ function icon_map() {
   "App Store")
     icon_result=":app_store:"
     ;;
-#  "Arc")
-#    icon_result=":arc:"
-#    ;;
+  "Arc")
+    icon_result=":arc:"
+    ;;
   "Arduino" | "Arduino IDE")
     icon_result=":arduino:"
     ;;
@@ -364,18 +364,18 @@ function icon_map() {
   "Microsoft Excel")
     icon_result=":microsoft_excel:"
     ;;
-#  "Microsoft Outlook")
-#    icon_result=":microsoft_outlook:"
-#    ;;
+  "Microsoft Outlook")
+    icon_result=":microsoft_outlook:"
+    ;;
   "Microsoft PowerPoint")
     icon_result=":microsoft_power_point:"
     ;;
   "Microsoft Remote Desktop")
     icon_result=":microsoft_remote_desktop:"
     ;;
-#  "Microsoft Teams" | "Microsoft Teams (work or school)")
-#    icon_result=":microsoft_teams:"
-#    ;;
+  "Microsoft Teams" | "Microsoft Teams (work or school)")
+    icon_result=":microsoft_teams:"
+    ;;
   "Microsoft Word")
     icon_result=":microsoft_word:"
     ;;
@@ -505,7 +505,7 @@ function icon_map() {
   "PomoDone App")
     icon_result=":pomodone:"
     ;;
-  "Postman")
+  "Postman" | "Bruno")
     icon_result=":postman:"
     ;;
   "Proton Mail" | "Proton Mail Bridge")

@@ -1,4 +1,4 @@
-#!/bin/bash
+  #!/bin/bash
 
 CONFIG_DIR="$HOME/.config/sketchybar"
 

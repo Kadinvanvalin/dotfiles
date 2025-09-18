@@ -3,7 +3,7 @@
 ci() {
   GIT_ROOT=$(git rev-parse --show-toplevel)
   cd "$GIT_ROOT"
-  
+
   GITLAB_CI=".gitlab-ci.*"
   if [ -e $GITLAB_CI ]; then
     local url="$(gits -o remote)/-/pipelines/"
