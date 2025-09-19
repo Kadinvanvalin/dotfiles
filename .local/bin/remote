@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "gits remote"
-gits remote
+echo "open $(gits remote)"
+open $(gits -o remote)
 
 
