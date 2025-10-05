@@ -79,7 +79,7 @@ inner.vertical =   0
 outer.left =       10
 outer.bottom =     10
 # outer.top =       59
-outer.top =   [{ monitor."^built-in retina display$" = 30 }, 10]
+outer.top =   [{ monitor."^built-in retina display$" = 30 }, {monitor."^U2790B" = 59},10]
 outer.right =      10
 
 # 'main' binding mode declaration
