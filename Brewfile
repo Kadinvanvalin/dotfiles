@@ -17,10 +17,8 @@ brew "carthage"
 brew "cassandra"
 brew "chroma"
 brew "cmake"
-brew "colima" # docker backend
+brew "colima"
 brew "coreutils"
-# brew "cowsay"
-# brew "cpulimit"
 brew "csvkit"
 brew "docker"
 brew "docker-buildx"
@@ -90,35 +88,25 @@ cask "alfred", args: { appdir: "/Applications" }
 cask "amazon-chime", args: { appdir: "/Applications" }
 cask "amethyst", args: { appdir: "/Applications" }
 cask "bruno"
-# cask "contexts", args: { appdir: "/Applications" }
 cask "dropbox", args: { appdir: "/Applications" }
 cask "font-hack-nerd-font"
-# cask "ghostty"
+cask "font-sketchybar-app-font"
 cask "hammerspoon"
 cask "hoppscotch"
 cask "insomnia"
 cask "intellij-idea", args: { appdir: "/Applications" }
-# cask "jordanbaird-ice" got ride of the bar completely
+cask "jdk-mission-control"
 cask "keycastr", args: { appdir: "/Applications" }
-# cask "little-snitch", args: { appdir: "/Applications" }
-# cask "lm-studio"
-# cask "menumeters", args: { appdir: "/Applications" }
-# cask "obs"
 cask "obsidian", args: { appdir: "/Applications" }
-# cask "rectangle"
 cask "sf-symbols"
 cask "slack"
+cask "temurin"
+cask "temurin@17"
 cask "tuple"
 cask "vagrant", args: { appdir: "/Applications" }
 cask "visualvm"
 cask "vscodium", args: { appdir: "/Applications" }
-# cask "whichspace", args: { appdir: "/Applications" }
-# cask "wireshark-app", args: { appdir: "/Applications" }
 cask "zoom"
-# mas "GarageBand", id: 682658836
-# mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Microsoft To Do", id: 1274495053
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 vscode "dart-code.dart-code"
