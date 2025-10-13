@@ -1,4 +1,3 @@
-# Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
 # You can use it to add commands that run after login to macOS user session.
@@ -159,7 +158,7 @@ alt-9 = 'workspace 9'
 # alt-m = 'workspace M'
 # alt-n = 'workspace N'
 # alt-o = 'workspace O'
-alt-p = 'workspace P'
+# alt-p = 'workspace P'
 # alt-q = 'workspace Q'
 # alt-r = 'workspace R'
 # alt-s = 'workspace S'
@@ -192,7 +191,7 @@ alt-shift-9 = 'move-node-to-workspace 9'
 # alt-shift-m = 'move-node-to-workspace M'
 # alt-shift-n = 'move-node-to-workspace N'
 # alt-shift-o = 'move-node-to-workspace O'
-alt-shift-p = 'move-node-to-workspace P'
+# alt-shift-p = 'move-node-to-workspace P'
 # alt-shift-q = 'move-node-to-workspace Q'
 # alt-shift-r = 'move-node-to-workspace R'
 # alt-shift-s = 'move-node-to-workspace S'
@@ -232,12 +231,13 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 [workspace-to-monitor-force-assignment]
-1 = 1
-2 = 1
-3 = 1
-4 = 1
-5 = 1
-7 = 2
-8 = 2
-9 = 2
-"P" = 2
+"1" = "1"
+"2" = "1"
+"3" = "1"
+"4" = "2"
+"5" = "2"
+"6" = "2"
+"7" = "3"
+"8" = "3"
+"9" = "3"
+# "P" = 2
