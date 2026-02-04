@@ -69,7 +69,8 @@ bindings = [
 hide_when_typing = true
 
 [scrolling]
-history = 5000
+# history = 5000
+history = 0
 
 [terminal.shell]
 program = "/bin/zsh"

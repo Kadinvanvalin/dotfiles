@@ -216,8 +216,7 @@ source ~/gitlab.cj.dev/cjdev/main/bin/build/devdb/devdb_includes.sh
 alias startKafkaUi='docker run -it -p 8080:8080 -e KAFKA_CLUSTERS_0_NAME=aws -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-bootstrap.dba.dev.cjpowered.com:9092 -e KAFKA_CLUSTERS_0_READONLY=true -e KAFKA_CLUSTERS_1_NAME="on-prem prod" -e KAFKA_CLUSTERS_1_BOOTSTRAPSERVERS=kafka101.sjc.cj.com:9092,kafka102.sjc.cj.com:9092,kafka103.sjc.cj.com:9092,kafka104.sjc.cj.com:9092,kafka105.sjc.cj.com:9092,kafka106.sjc.cj.com:9092 -e KAFKA_CLUSTERS_1_READONLY=true -e KAFKA_CLUSTERS_2_NAME="on-prem lab" -e KAFKA_CLUSTERS_2_BOOTSTRAPSERVERS=speedyg102.sj2.cj.com:9092,speedyg103.sj2.cj.com:9092,speedyg104.sj2.cj.com:9092,speedyg105.sj2.cj.com:9092 -e KAFKA_CLUSTERS_2_READONLY=true -e DYNAMIC_CONFIG_ENABLED=true provectuslabs/kafka-ui'
 
 
-
-# fi
+bindkey -q previous-history
 
 if [ -d ~/gitlab.cj.dev/attribution/potentially-useful-code ]; then
   echo "adding bin from potentially useful code"
@@ -249,5 +248,10 @@ eval "$(starship init zsh)"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/kadvanv/.lmstudio/bin"
 export TERM="screen-256color"
+# End of LM Studio CLI section
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/kadinvanvalin/.lmstudio/bin"
 # End of LM Studio CLI section
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 slack_id=$(aerospace list-windows --all | awk -F'|' '/Slack/ {print $1}' | xargs)
 outlook_id=$(aerospace list-windows --all | awk -F'|' '/Microsoft Outlook/ {print $1}' | xargs)
 terminal_id=$(aerospace list-windows --all | awk -F'|' '/Alacritty/ {print $1}' | xargs)
