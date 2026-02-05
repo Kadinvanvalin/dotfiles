@@ -9,6 +9,7 @@
   editor = nvim
   excludesfile = ~/.gitignore
   autocrlf = input
+	hooksPath = /Users/kadvanv/github.com/kadinvanvalin/dotfiles/.githooks
 [color]
   branch = auto
   diff = auto

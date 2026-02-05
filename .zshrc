@@ -233,7 +233,7 @@ eval "$(zoxide init zsh)"
 # dont seem to need scalahome export SCALA_HOME=/Users/kadvanv/.asdf/installs/scala/2.12.8
 # eval "$(/usr/local/bin/mise activate zsh)" # trying mise
 # Create tmux by default
-if [ -z "$TMUX" ]
+if [ -z "$TMUX" ] && [ -z "$IDEA_SESSION" ]
 then
   tmux attach -t TMUX || tmux new -s TMUX
 fi
@@ -248,10 +248,5 @@ eval "$(starship init zsh)"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/kadvanv/.lmstudio/bin"
 export TERM="screen-256color"
-# End of LM Studio CLI section
-
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/kadinvanvalin/.lmstudio/bin"
 # End of LM Studio CLI section
 
