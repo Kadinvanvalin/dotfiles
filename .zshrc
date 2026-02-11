@@ -177,49 +177,42 @@ if [ -f ~/.aliases ]
 then
   source ~/.aliases
 fi
-
-# if [ -f ~/work/.zprofile ]
-# then
-#   source ~/work/.zprofile
-export DEVDB_HOST=devdb.db.cj.com
-export DEVDB_USERNAME=spud
-export DEVDB_PORT=1521
-export DEVDB_SID=devdb
-export BUILD_USER=spud
-export CJ_MAIN='~/gitlab.cj.dev/cjdev/main'
-alias ll='ls -la'
-alias main="cd $CJ_MAIN"
-alias mci='mvn clean install -T 1C -Ddelta.skip=true -Dqunit.numThreads=8'
-alias qb='mvn clean install -T 1C -Ddelta.skip=true -Dcleanup.skip=true -Dqunit.numThreads=8 -DskipTests -Dtablespaces.skip=true -Dgulp.task=min'
-alias qqb='mvn install -T 1C -Ddelta.skip=true -Dcleanup.skip=true -Dqunit.numThreads=8 -DskipTests -Dtablespaces.skip=true -Dgulp.task=min'
-
-
-alias dmct='docker run -v "$HOME/.m2":/root/.m2 -v $PWD/:/code -w=/code -e DEVDB_SCHEMA -e BUILD_USER -e DEVDB_HOST -e DEVDB_SID -e DEVDB_PORT --rm maven:3.8.1-amazoncorretto-11 mvn clean test -T 1C -Ddelta.skip=true -Dqunit.numThreads=8'
-alias dmt='docker run -v "$HOME/.m2":/root/.m2 -v $PWD/:/code -w=/code -e DEVDB_SCHEMA -e BUILD_USER -e DEVDB_HOST -e DEVDB_SID -e DEVDB_PORT --rm maven:3.8.1-amazoncorretto-11 mvn test -T 1C -Ddelta.skip=true -Dqunit.numThreads=8'
-
-
-
-export MAVEN_OPTS="-Xss3m -XX:ReservedCodeCacheSize=256m"
-export SBT_OPTS='-Xms2G -Xmx2G'
-export JAVA_OPTS='-Xms4G -Xmx4G -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=2096M'
-export HEDGEDOC_SERVER="https://notes.cj.dev";
-# export PATH="~/work/bin:${PATH}"
-# something
-# source ~/.jira
-export CJ_MAIN=~/gitlab.cj.dev/cjdev/main
-export RESIN_HOME=$HOME/resin-4.0.66
-export BUILD_SCRIPTS=$CJ_MAIN/bin/build/maven
-export RESIN_SCRIPTS=$CJ_MAIN/bin/resin
-export RESIN_BIN=$RESIN_HOME/bin
-export PATH="$BUILD_SCRIPTS:$RESIN_SCRIPTS:$RESIN_BIN:$PATH"
-source ~/gitlab.cj.dev/cjdev/main/bin/build/devdb/devdb_includes.sh
-alias startKafkaUi='docker run -it -p 8080:8080 -e KAFKA_CLUSTERS_0_NAME=aws -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-bootstrap.dba.dev.cjpowered.com:9092 -e KAFKA_CLUSTERS_0_READONLY=true -e KAFKA_CLUSTERS_1_NAME="on-prem prod" -e KAFKA_CLUSTERS_1_BOOTSTRAPSERVERS=kafka101.sjc.cj.com:9092,kafka102.sjc.cj.com:9092,kafka103.sjc.cj.com:9092,kafka104.sjc.cj.com:9092,kafka105.sjc.cj.com:9092,kafka106.sjc.cj.com:9092 -e KAFKA_CLUSTERS_1_READONLY=true -e KAFKA_CLUSTERS_2_NAME="on-prem lab" -e KAFKA_CLUSTERS_2_BOOTSTRAPSERVERS=speedyg102.sj2.cj.com:9092,speedyg103.sj2.cj.com:9092,speedyg104.sj2.cj.com:9092,speedyg105.sj2.cj.com:9092 -e KAFKA_CLUSTERS_2_READONLY=true -e DYNAMIC_CONFIG_ENABLED=true provectuslabs/kafka-ui'
-
+alias code='/opt/homebrew/bin/codium'
 
 bindkey -q previous-history
 
 if [ -d ~/gitlab.cj.dev/attribution/potentially-useful-code ]; then
-  echo "adding bin from potentially useful code"
+  echo "loading config for cj"
+
+  export DEVDB_HOST=devdb.db.cj.com
+  export DEVDB_USERNAME=spud
+  export DEVDB_PORT=1521
+  export DEVDB_SID=devdb
+  export BUILD_USER=spud
+  export CJ_MAIN='~/gitlab.cj.dev/cjdev/main'
+
+  alias dmct='docker run -v "$HOME/.m2":/root/.m2 -v $PWD/:/code -w=/code -e DEVDB_SCHEMA -e BUILD_USER -e DEVDB_HOST -e DEVDB_SID -e DEVDB_PORT --rm maven:3.8.1-amazoncorretto-11 mvn clean test -T 1C -Ddelta.skip=true -Dqunit.numThreads=8'
+  alias dmt='docker run -v "$HOME/.m2":/root/.m2 -v $PWD/:/code -w=/code -e DEVDB_SCHEMA -e BUILD_USER -e DEVDB_HOST -e DEVDB_SID -e DEVDB_PORT --rm maven:3.8.1-amazoncorretto-11 mvn test -T 1C -Ddelta.skip=true -Dqunit.numThreads=8'
+
+
+
+  export MAVEN_OPTS="-Xss3m -XX:ReservedCodeCacheSize=256m"
+  export SBT_OPTS='-Xms2G -Xmx2G'
+  export JAVA_OPTS='-Xms4G -Xmx4G -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=2096M'
+  export HEDGEDOC_SERVER="https://notes.cj.dev";
+  export TICKET=$(cat ~/.ticket)
+  echo "current ticket: $TICKET"
+  export CJ_MAIN=~/gitlab.cj.dev/cjdev/main
+  export RESIN_HOME=$HOME/resin-4.0.66
+  export BUILD_SCRIPTS=$CJ_MAIN/bin/build/maven
+  export RESIN_SCRIPTS=$CJ_MAIN/bin/resin
+  export RESIN_BIN=$RESIN_HOME/bin
+  export PATH="$BUILD_SCRIPTS:$RESIN_SCRIPTS:$RESIN_BIN:$PATH"
+  source ~/gitlab.cj.dev/cjdev/main/bin/build/devdb/devdb_includes.sh
+  echo "adding code from potentially useful code"
+  source $HOME/gitlab.cj.dev/attribution/potentially-useful-code/aliases/aliases
+
+
   export PATH=$HOME/gitlab.cj.dev/attribution/potentially-useful-code/bin:$PATH
 fi
 eval $(thefuck --alias opps)
@@ -241,8 +234,7 @@ fi
 export ZK_NOTEBOOK_DIR=~/github.com/kadinvanvalin/notes
 eval $(thefuck --alias)
 eval "$(atuin init zsh)"
-export TICKET=$(cat ~/.ticket)
-echo "current ticket: $TICKET"
+
 
 eval "$(starship init zsh)"
 # Added by LM Studio CLI (lms)
