@@ -1,5 +1,3 @@
-alias jeeves-edit-playbook="vi ~/github.com/kadinvanvalin/mac-dev-playbook/config.yml"
-alias jeeves-run-playbook="cd ~/github.com/kadinvanvalin/mac-dev-playbook; ansible-playbook main.yml --ask-become-pass"
 alias please='sudo $(fc -ln -1)'
 alias java8="asdf shell java corretto-8.442.06.1"
 alias java12="asdf shell java 12"
